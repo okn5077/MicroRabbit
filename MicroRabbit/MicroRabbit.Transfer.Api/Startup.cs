@@ -59,6 +59,8 @@ namespace MicroRabbit.Transfer.Api
             //Data
             services.AddTransient<ITransferRepository, TransferRepository>();
             services.AddTransient<TransferDbContext>();
+            services.AddTransient<IEventHandler<TransferCreatedEvent>, TransferEventHandler>();
+            services.AddTransient<TransferEventHandler>();
         }
 
         private void RegisterServices(IServiceCollection services)
